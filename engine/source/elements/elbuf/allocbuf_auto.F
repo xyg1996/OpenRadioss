@@ -79,7 +79,7 @@ C-----------------------------------------------
      .   G_SKEW_ID,G_MAXFRAC,G_MAXEPS,G_GAMA_R,G_SLIPRING_ID,G_SLIPRING_STRAND,G_RETRACTOR_ID,
      .   G_RINGSLIP,G_ADD_NODE,G_UPDATE,G_INTVAR,G_BETAORTH,G_AMU,G_SLIPRING_FRAM_ID,G_FRAM_FACTOR,
      .   G_TM_YIELD,G_TM_SEQ,G_TM_EINT,G_TM_DMG,G_TM_SIG,G_TM_STRA,G_TSAIWU,G_DMGSCL,
-     .   G_SH_IOFFSET,G_EINT_DISTOR,G_FOR_G,G_FORPG_G
+     .   G_SH_IOFFSET,G_EINT_DISTOR,G_FOR_G,G_FORPG_G,G_ROT_INC
       INTEGER  ! layer variables
      .   LY_DMG,LY_GAMA,LY_DIRA,LY_DIRB,LY_CRKDIR,LY_PLAPT,LY_SIGPT,LY_SMSTR,
      .   LY_HOURG,LY_UELR,LY_UELR1,LY_OFFPG,LY_OFF,LEN_PLAPT,LEN_SIGPT
@@ -1207,7 +1207,11 @@ c
       G_OFF  =  NINT(RBUF(IAD+1))         
         IAD = IAD + 1                               
       G_GAMA =  NINT(RBUF(IAD+1))         
-        IAD = IAD + 1                             
+        IAD = IAD + 1
+
+      G_ROT_INC =  NINT(RBUF(IAD+1))         
+        IAD = IAD + 1        
+
       G_SMSTR=  NINT(RBUF(IAD+1))         
         IAD = IAD + 1                              
       G_HOURG=  NINT(RBUF(IAD+1))         
@@ -1614,6 +1618,11 @@ c---
       ALLOCATE (ELBUF_STR%GBUF%GAMA(NEL*G_GAMA)  ,STAT=ERR)
         GBUF%GAMA(1:NEL*G_GAMA)  = RBUF(IAD+1:IAD+NEL*G_GAMA)                    
           IAD = IAD+NEL*G_GAMA
+
+      ALLOCATE (ELBUF_STR%GBUF%ROT_INC(NEL*G_ROT_INC),STAT=ERR)                        
+        GBUF%ROT_INC(1:NEL*G_ROT_INC)=RBUF(IAD+1:IAD+NEL*G_ROT_INC)                          
+          IAD = IAD+NEL*G_ROT_INC
+
 c      ALLOCATE (ELBUF_STR%GBUF%SMSTR(NEL*G_SMSTR) ,STAT=ERR)                     
 c        GBUF%SMSTR(1:NEL*G_SMSTR) = RBUF(IAD+1:IAD+NEL*G_SMSTR)                  
 c          IAD = IAD+NEL*G_SMSTR

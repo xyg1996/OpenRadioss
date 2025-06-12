@@ -55,6 +55,10 @@ c
       IAD = IAD + 1
       GBUF%G_GAMA  = 0   
       IAD = IAD + 1
+
+      GBUF%G_ROT_INC = 0
+      IAD = IAD + 1
+
       GBUF%G_SMSTR = 0  
       IAD = IAD + 1
       GBUF%G_HOURG = 0   

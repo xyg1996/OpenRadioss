@@ -372,6 +372,16 @@ c-------------------------------------------------
         ELBUF_TAB(NG)%GBUF%IERR = 0                                                   
       CALL MY_ALLOC(GBUF%GAMA,NEL*GBUF%G_GAMA)                                      
         ELBUF_TAB(NG)%GBUF%GAMA = ZERO
+
+      CALL MY_ALLOC(GBUF%ROT_INC,NEL*GBUF%G_ROT_INC) ! add rotational increment MATRIX 3*3 by xyg  
+      ! 初始化为单位矩阵  
+        ELBUF_TAB(NG)%GBUF%ROT_INC = ZERO
+      DO I = 1, NEL  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(I) = ONE     ! (1,1)  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(NEL*3+I) = ONE     ! (2,2)  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(NEL*6+I) = ONE     ! (3,3)  
+      ENDDO
+
       CALL MY_ALLOC(GBUF%SMSTR,NEL*GBUF%G_SMSTR)                                    
         ELBUF_TAB(NG)%GBUF%SMSTR = ZERO
       CALL MY_ALLOC(GBUF%HOURG,NEL*GBUF%G_HOURG)                                    

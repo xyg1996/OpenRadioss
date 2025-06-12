@@ -1,6 +1,7 @@
 cbuild_*
 vs_build*
 .vs
+.vscode/
 exec
 *.swp
 *.swo
