@@ -48,7 +48,7 @@ Copyright>        commercial version may interest you: https://www.altair.com/ra
      D   DPDE,      RHO,       TEMP,      ECOLD,
      E   BUFMAT,    NPC,       TF,        TSAIWU,
      F   VAREOS,    NVAREOS,   JCVT,      JSPH,
-     G   MAT_PARAM)
+     G   MAT_PARAM,R_OLD)
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
@@ -88,7 +88,7 @@ C-----------------------------------------------
      .   D1(MVSIZ), D2(MVSIZ), D3(MVSIZ),D4(MVSIZ),D5(MVSIZ),D6(MVSIZ),
      .   SOLD1(MVSIZ), SOLD2(MVSIZ), SOLD3(MVSIZ), SOLD4(MVSIZ),
      .   SOLD5(MVSIZ), SOLD6(MVSIZ),SIGY(*),DEFP(*),SEQ_OUTPUT(*),
-     .   TSAIWU(MVSIZ),VAREOS(NVAREOS*NEL)
+     .   TSAIWU(MVSIZ),VAREOS(NVAREOS*NEL),R_OLD(NEL,9)
       my_real
      .   RHO0(NEL), AMU(NEL)  , AMU2(NEL), ESPE(NEL), DF(NEL) ,
      .   PSH(NEL) , PNEW(NEL) , DPDM(NEL), DPDE(NEL), RHO(NEL),
@@ -177,6 +177,13 @@ C--------------------------------------------
      3   AX,      AY,      AZ,      BX,
      4   BY,      BZ,      CX,      CY,
      5   CZ,      NEL,     JCVT,    JSPH)
+
+      DO I=1,NEL
+        DO J = 1, 9
+          PRINT *, 'R_OLD is', R_OLD(I, J)
+        ENDDO
+      ENDDO
+
         CALL M14GTF(SIG,AX ,AY ,AZ ,BX ,BY,  
      2              BZ ,CX ,CY ,CZ ,D1 ,D2,
      3              D3 ,D4 ,D5 ,D6 ,T1 ,T2,

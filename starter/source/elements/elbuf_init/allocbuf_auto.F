@@ -377,9 +377,9 @@ c-------------------------------------------------
       ! 初始化为单位矩阵  
         ELBUF_TAB(NG)%GBUF%ROT_INC = ZERO
       DO I = 1, NEL  
-        ELBUF_TAB(NG)%GBUF%ROT_INC(I) = ONE     ! (1,1)  
-        ELBUF_TAB(NG)%GBUF%ROT_INC(NEL*3+I) = ONE     ! (2,2)  
-        ELBUF_TAB(NG)%GBUF%ROT_INC(NEL*6+I) = ONE     ! (3,3)  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(9*(I-1)+1) = ONE     ! (1,1)  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(9*(I-1)+5) = ONE     ! (2,2)  
+        ELBUF_TAB(NG)%GBUF%ROT_INC(9*(I-1)+9) = ONE     ! (3,3)  
       ENDDO
 
       CALL MY_ALLOC(GBUF%SMSTR,NEL*GBUF%G_SMSTR)                                    

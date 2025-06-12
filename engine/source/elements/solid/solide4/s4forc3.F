@@ -533,6 +533,16 @@ C----for Eint compute----
 !!     .                 E1X, E1Y, E1Z, E2X, E2Y, E2Z, E3X, E3Y, E3Z,GBUF%OFF)
       ENDIF
 
+      CALL S4LARGE_ROT(
+     1   PX1,     PX2,     PX3,     PX4,
+     2   PY1,     PY2,     PY3,     PY4,
+     3   PZ1,     PZ2,     PZ3,     PZ4,
+     4   VX1,     VX2,     VX3,     VX4,
+     5   VY1,     VY2,     VY3,     VY4,
+     6   VZ1,     VZ2,     VZ3,     VZ4,
+     7   DXX,     DXY,     DXZ,     DYX,
+     8   DYY,     DYZ,     DZX,     DZY,
+     9   DZZ,     NEL,     DT1,     GBUF%ROT_INC)
 
       CALL SROTA3(
      1   GBUF%SIG,S1,      S2,      S3,
