@@ -822,7 +822,8 @@ c
           LGLOB = LGLOB + GBUF%G_NOFF  
           LGLOB = LGLOB + GBUF%G_IERR  
           LGLOB = LGLOB + GBUF%G_GAMA
-          LGLOB = LGLOB + GBUF%G_ROT_INC  
+          LGLOB = LGLOB + GBUF%G_ROT_INC
+          LGLOB = LGLOB + GBUF%G_ORTH_DIR  
 C This array is a double precision array even in SP executable.
 C Remode from global buffer writing
 c           LGLOB = LGLOB + GBUF%G_SMSTR

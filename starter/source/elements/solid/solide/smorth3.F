@@ -39,7 +39,7 @@ Copyright>        commercial version may interest you: https://www.altair.com/ra
      .       RX   ,RY   ,RZ   ,SX   ,SY   ,SZ   ,TX   ,TY   ,TZ   ,
      .       E1X  ,E1Y  ,E1Z  ,E2X  ,E2Y  ,E2Z  ,E3X  ,E3Y  ,E3Z  ,
      .       F1X  ,F1Y  ,F1Z  ,F2X  ,F2Y  ,F2Z  ,NSIGI,SIGSP,NSIGS,
-     .       SIGI ,IXS  ,X    ,JHBE ,PT   ,NEL  ,ISOLNOD)
+     .       SIGI ,IXS  ,X    ,JHBE ,PT   ,NEL  ,ISOLNOD, ORTH_DIR)
 C-----------------------------------------------
 C   M o d u l e s
 C-----------------------------------------------
@@ -71,7 +71,7 @@ C     REAL
      .   RX(*) ,RY(*) ,RZ(*) ,SX(*) ,SY(*) ,SZ(*) ,TX(*) ,TY(*) ,TZ(*),
      .   E1X(*),E1Y(*),E1Z(*),E2X(*),E2Y(*),E2Z(*),E3X(*),E3Y(*),E3Z(*),
      .   F1X(*),F1Y(*),F1Z(*),F2X(*),F2Y(*),F2Z(*),SIGSP(NSIGI,*),
-     .   SIGI(NSIGS,*),X(3,*)
+     .   SIGI(NSIGS,*),X(3,*),ORTH_DIR(NEL,9)
 C-----------------------------------------------
 C   L o c a l   V a r i a b l e s
 C-----------------------------------------------
@@ -136,6 +136,30 @@ C
      .      SKEW(4,ISK)*E2X(I)+SKEW(5,ISK)*E2Y(I)+SKEW(6,ISK)*E2Z(I)
           GAMA(I,6)=
      .      SKEW(4,ISK)*E3X(I)+SKEW(5,ISK)*E3Y(I)+SKEW(6,ISK)*E3Z(I)
+
+c          ORTH_DIR(I,1) = SKEW(2,ISK)*SKEW(6,ISK) - SKEW(3,ISK)*SKEW(5,ISK)
+c          ORTH_DIR(I,4) = SKEW(3,ISK)*SKEW(4,ISK) - SKEW(1,ISK)*SKEW(6,ISK)
+c          ORTH_DIR(I,7) = SKEW(1,ISK)*SKEW(5,ISK) - SKEW(2,ISK)*SKEW(4,ISK)
+
+c          ORTH_DIR(I,2) = SKEW(1,ISK)
+c          ORTH_DIR(I,5) = SKEW(2,ISK)
+c         ORTH_DIR(I,8) = SKEW(3,ISK)
+
+c          ORTH_DIR(I,3) = SKEW(4,ISK)
+c          ORTH_DIR(I,6) = SKEW(5,ISK)
+c          ORTH_DIR(I,9) = SKEW(6,ISK)
+          ORTH_DIR(I,1) = SKEW(1,ISK)
+          ORTH_DIR(I,4) = SKEW(2,ISK)
+          ORTH_DIR(I,7) = SKEW(3,ISK)
+
+          ORTH_DIR(I,2) = SKEW(4,ISK)
+          ORTH_DIR(I,5) = SKEW(5,ISK)
+          ORTH_DIR(I,8) = SKEW(6,ISK)
+          
+          ORTH_DIR(I,3) = SKEW(7,ISK)
+          ORTH_DIR(I,6) = SKEW(8,ISK)
+          ORTH_DIR(I,9) = SKEW(9,ISK)
+
         ELSEIF (IPNUM == 4) THEN
 C         DIR1 =  projection vect V on bottom face
 C         DIR2 =  orthogonal to DIR1, on bottom face

@@ -313,6 +313,7 @@ C
 
       IF (IGTYP == 6 .AND. GMAT > 0) THEN
         IF (GBUF%G_ROT_INC == 0) GBUF%G_ROT_INC = 9
+        IF (GBUF%G_ORTH_DIR == 0) GBUF%G_ORTH_DIR = 9
       ENDIF
       IF (IGTYP == 23 .AND. GMAT > 0) THEN   ! spring with Material
         MTAG  => MLAW_TAG(GMAT)

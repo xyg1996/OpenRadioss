@@ -58,6 +58,8 @@ c
 
       GBUF%G_ROT_INC = 0
       IAD = IAD + 1
+      GBUF%G_ORTH_DIR = 0
+      IAD = IAD + 1
 
       GBUF%G_SMSTR = 0  
       IAD = IAD + 1

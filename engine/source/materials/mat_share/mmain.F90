@@ -1370,7 +1370,7 @@
             &dpde,       lbuf%rho,   lbuf%temp,  ecold,&
             &bufmat,     npf,        tf,         lbuf%tsaiwu,&
             &ebuf%var,   nvareos,    jcvt,       jsph,&
-            &mat_elem%mat_param(imat),gbuf%rot_inc)
+            &mat_elem%mat_param(imat),gbuf%rot_inc,gbuf%orth_dir)
             if (jsph == 0) then
               call mqviscb(&
               &pm,       off,      lbuf%rho, lbuf%rk,&

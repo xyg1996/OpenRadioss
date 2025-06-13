@@ -282,7 +282,7 @@ c    14. R_inc = term1 + term2 - term3
             R_inc(J,K) = term1(J,K) + term2(J,K) - term3(J,K)
 250   continue
 240   continue
-        PRINT *, 'R_inc is', R_inc
+C        PRINT *, 'R_inc is', R_inc
 C     计算 temp = R_inc * R_OLD，保持行优先存储
         DO J = 1, 3
           DO K = 1, 3

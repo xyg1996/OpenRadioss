@@ -722,7 +722,8 @@
         integer  g_ierr
         integer  g_off    
         integer  g_gama
-        integer  g_rot_inc   
+        integer  g_rot_inc
+        integer  g_orth_dir   
         integer  g_smstr  
         integer  g_hourg  
         integer  g_bfrac  
@@ -855,7 +856,8 @@
         integer, dimension(:) , pointer ::   ierr  
         my_real, dimension(:) , pointer ::   off   
         my_real, dimension(:) , pointer ::   gama
-        my_real, dimension(:) , pointer ::   rot_inc  
+        my_real, dimension(:) , pointer ::   rot_inc
+        my_real, dimension(:) , pointer ::   orth_dir  
         double precision, dimension(:) , pointer ::   smstr 
         my_real, dimension(:) , pointer ::   hourg 
         my_real, dimension(:) , pointer ::   bfrac    

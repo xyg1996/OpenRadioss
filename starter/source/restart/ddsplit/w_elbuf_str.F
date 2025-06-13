@@ -70,7 +70,7 @@ C-----------------------------------------------
      .   G_SKEW_ID,G_GAMA_R,G_SLIPRING_ID,G_SLIPRING_STRAND,G_RETRACTOR_ID,G_RINGSLIP,
      .   G_ADD_NODE,G_UPDATE,G_INTVAR,G_BETAORTH,G_AMU,G_SLIPRING_FRAM_ID,G_FRAM_FACTOR,
      .   G_TM_YIELD,G_TM_SEQ,G_TM_EINT,G_TM_DMG,G_TM_SIG,G_TM_STRA,G_TSAIWU,G_DMGSCL,
-     .   G_SH_IOFFSET,G_EINT_DISTOR,G_FOR_G,G_FORPG_G,G_ROT_INC
+     .   G_SH_IOFFSET,G_EINT_DISTOR,G_FOR_G,G_FORPG_G,G_ROT_INC,G_ORTH_DIR
 
       INTEGER  ! layer variables
      .   LY_DMG,LY_GAMA,LY_DIRA,LY_DIRB,LY_CRKDIR,LY_PLAPT,LY_SIGPT,LY_SMSTR,
@@ -1066,6 +1066,7 @@ c
           G_GAMA  = GBUF%G_GAMA
 
           G_ROT_INC  = GBUF%G_ROT_INC
+          G_ORTH_DIR  = GBUF%G_ORTH_DIR
 
           G_SMSTR = GBUF%G_SMSTR 
           G_HOURG = GBUF%G_HOURG 
@@ -1216,7 +1217,9 @@ c
              L_REL = L_REL + 1
 
            RBUF_L(L_REL+1) =  G_ROT_INC
-             L_REL = L_REL + 1             
+             L_REL = L_REL + 1
+           RBUF_L(L_REL+1) =  G_ORTH_DIR
+             L_REL = L_REL + 1                             
                                              
            RBUF_L(L_REL+1) =  G_SMSTR        
              L_REL = L_REL + 1                                 
@@ -1486,6 +1489,8 @@ c
 
           RBUF_L(L_REL+1:L_REL+NEL*G_ROT_INC) = GBUF%ROT_INC(1:NEL*G_ROT_INC)    
             L_REL = L_REL + NEL*G_ROT_INC
+          RBUF_L(L_REL+1:L_REL+NEL*G_ORTH_DIR) = GBUF%ORTH_DIR(1:NEL*G_ORTH_DIR)    
+            L_REL = L_REL + NEL*G_ORTH_DIR            
 
           IF(NEL*G_SMSTR >0)THEN 
             DP_RBUF(L_DPREL+1:L_DPREL+NEL*G_SMSTR)= GBUF%SMSTR(1:NEL*G_SMSTR)

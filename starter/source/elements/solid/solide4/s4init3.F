@@ -201,7 +201,7 @@ C
      .         RX   ,RY   ,RZ   ,SX   ,SY   ,SZ   ,TX   ,TY   ,TZ   ,
      .         E1X  ,E1Y  ,E1Z  ,E2X  ,E2Y  ,E2Z  ,E3X  ,E3Y  ,E3Z  ,
      .         RX   ,RY   ,RZ   ,SX   ,SY   ,SZ   ,NSIGI,SIGSP,NSIGS,
-     .         SIGI ,IXS  ,X    ,JHBE ,PTSOL,NEL  ,IPARG_GR(28))
+     .         SIGI ,IXS  ,X    ,JHBE ,PTSOL,NEL  ,IPARG_GR(28),GBUF%ORTH_DIR)
       IP=1
       CALL MATINI(PM      ,IXS     ,NIXS       ,X         ,
      .            GEO     ,ALE_CONNECTIVITY   ,DETONATORS ,IPARG_GR  ,

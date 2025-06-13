@@ -382,6 +382,10 @@ c-------------------------------------------------
         ELBUF_TAB(NG)%GBUF%ROT_INC(9*(I-1)+9) = ONE     ! (3,3)  
       ENDDO
 
+      CALL MY_ALLOC(GBUF%ORTH_DIR,NEL*GBUF%G_ORTH_DIR) ! add rotational increment MATRIX 3*3 by xyg  
+      ! 初始化为单位矩阵  
+        ELBUF_TAB(NG)%GBUF%ORTH_DIR = ZERO
+
       CALL MY_ALLOC(GBUF%SMSTR,NEL*GBUF%G_SMSTR)                                    
         ELBUF_TAB(NG)%GBUF%SMSTR = ZERO
       CALL MY_ALLOC(GBUF%HOURG,NEL*GBUF%G_HOURG)                                    
